@@ -1,38 +1,36 @@
-.App {
-  text-align: center;
+*{
+  margin: 0px;
+  padding: 0px;
+}
+.box{
+background-image:url("https://wallpaper.dog/large/10990753.jpg");
+background-position: center;
+background-size: cover;
+height: 91vh;
+position: relative;
+}
+.container{
+  background-color: white;
+  margin-right: 50px;
+  opacity: 0.3;
+  position: absolute;
+  left: 150px;
+  top: 150px;
+  padding: auto;
+}
+.radio_input_style{
+  padding-bottom: 7rem;
+  margin: 20px 0;
+}
+.allItems{
+  display: grid;
+  grid-template-rows: max-content;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.image{
+  padding: 152px 0;
+  display:flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  height: 50vh;
+  background-color: black;
 }

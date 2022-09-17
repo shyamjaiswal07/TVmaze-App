@@ -1,0 +1,18 @@
+.Allitem{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.allItems{
+    margin: 20px;
+}
+.Footer{
+    text-align: center;
+    padding: 20px 0;
+    font-size: large;
+    font-weight: 600;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+}

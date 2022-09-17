@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState , useEffect} from "react";
+import "./App.css";
+import LandingPage from './landingPage';
+import GifPage from "./GifPage";
+import Footer from "./component/Footer";
 
-function App() {
+export default function App() {
+ const[state , setState] = useState(<GifPage/>);
+ useEffect(()=>{
+let num = 3;
+setInterval(() => {
+  num -= 1;
+  if(num===0){
+    setState(<LandingPage/>);
+  }
+}, 1000);
+ },[])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    {state}
+    <Footer/>
+    </>
   );
 }
-
-export default App;
