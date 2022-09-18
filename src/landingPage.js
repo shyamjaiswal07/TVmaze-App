@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -10,6 +10,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import Actor from "./component/Actor";
 import Shows from "./component/Shows";
+import NavBar from "./component/NavBar";
 
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -21,36 +22,51 @@ const CssTextField = styled(TextField)({
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
       borderColor: "red",
+      
     },
     "&:hover fieldset": {
       borderColor: "yellow",
     },
     "&.Mui-focused fieldset": {
       borderColor: "green",
+      
     },
   },
 });
 
 export default function LandingPage() {
-  const[state , setState] = useState("");
-  const[radioValue , setRadioValue] = useState("");
-  const handleState=(e)=>{
+  const [state, setState] = useState("");
+  const [radioValue, setRadioValue] = useState("");
+  const [handleInputBox, setHandleInputBox] = useState(false);
+  const [handlePlaceHolder, setHandlePlaceHolder] = useState(
+    "Search Your Favorite Actor"
+  );
+  const [alertMassage, setAlertMassage] = useState(
+    <div className="errorMassage">*Please Click on Actor or Shows*</div>
+  );
+  const handleState = (e) => {
     e.preventDefault();
-    setState(e.target.value)
-  }
+    setState(e.target.value);
+  };
   // console.log(state);
-  const handleRadio=(e)=>{
+  const handleRadio = (e) => {
     setRadioValue(e.target.value);
-    
-  }
+    if (e.target.value === "Actor") {
+      setHandlePlaceHolder("Search Your Favorite Actor");
+    } else {
+      setHandlePlaceHolder("Search Your Favorite Shows");
+    }
+    setHandleInputBox(true);
+    setAlertMassage("");
+  };
   return (
     <>
+      <NavBar />
       <Box className="box">
-        <Container component="form" className="container" >
+        <Container component="form" className="container">
           <div className="main-container">
             <div className="heading">
-              <h1>TVmaze</h1>
-              <h2>Search your favourite shows</h2>
+              <h2>Search your favourite Actor or Shows</h2>
             </div>
             <div className="radio_input_style">
               <FormControl onSubmit={handleState}>
@@ -61,9 +77,8 @@ export default function LandingPage() {
                 >
                   <FormControlLabel
                     value="Actor"
-                    control={<Radio  onChange={handleRadio}/>}
+                    control={<Radio onChange={handleRadio} />}
                     label="Actor"
-                    // checked = {'true'}
                   />
                   <FormControlLabel
                     value="Shows"
@@ -73,20 +88,28 @@ export default function LandingPage() {
                 </RadioGroup>
               </FormControl>
               <br />
-              <CssTextField
-                style={{ width: 400 }}
-                label="eg: Friends ..."
-                id="custom-css-outlined-input"
-                value={state}
-                onChange={handleState}
-              />
+              {handleInputBox ? (
+                <CssTextField
+                  style={{ width: 400 }}
+                  label={handlePlaceHolder}
+                  id="custom-css-outlined-input"
+                  value={state}
+                  onChange={handleState}
+                  autoComplete="off"
+                />
+              ) : (
+                ""
+              )}
+              {alertMassage}
             </div>
           </div>
         </Container>
       </Box>
-      {
-        radioValue === "Shows" ? <Shows  inpVal={state}/> : <Actor inpVal={state}/>
-        }
+      {radioValue === "Shows" ? (
+        <Shows inpVal={state} />
+      ) : (
+        <Actor inpVal={state} />
+      )}
     </>
   );
 }
