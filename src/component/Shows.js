@@ -10,22 +10,22 @@ const Shows = (props) => {
   let baseUrl = `https://api.tvmaze.com/search/shows?q=${props.inpVal}`;
   const [state, setstate] = useState([]);
 
-  // console.log(`https://api.tvmaze.com/search/shows?q=${props.inpVal}`)  https://api.tvmaze.com/search/people?q=akon
   useEffect(() => {
     axios.get(baseUrl).then((res) => {
       setstate(res.data);
     });
   }, [props.inpVal]);
+  
   return (
     <div className="Allitem">
       {state.map((item, index) => {
         return (
           <div className="allItems" key={index}>
-            <Card sx={{ maxWidth: 345 }}>
-              <CardActionArea>
+            <Card sx={{ width: 250 }}>
+              <CardActionArea className="CardArea">
                 <CardMedia
                   component="img"
-                  height="340"
+                  height= "300"
                   image={
                     item.show.image
                       ? item.show.image.original

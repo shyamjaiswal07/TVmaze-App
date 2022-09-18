@@ -21,11 +21,11 @@ const Actor = (props) => {
         console.log(item);
         return (
           <div className="allItems" key={index}>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ width: 250 }}>
               <CardActionArea>
                 <CardMedia
                   component="img"
-                  height="340"
+                  height="300"
                   image={
                     item.person.image
                       ? item.person.image.original
