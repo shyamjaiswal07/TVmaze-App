@@ -21,19 +21,20 @@ const Actor = (props) => {
         console.log(item);
         return (
           <div className="allItems" key={index}>
-          <a href={item.person.url} target="_blank">
             <Card sx={{ width: 250 }}>
               <CardActionArea>
-                <CardMedia
-                  component="img"
-                  height="300"
-                  image={
-                    item.person.image
-                      ? item.person.image.original
-                      : "https://static.tvmaze.com/uploads/images/original_untouched/297/743857.jpg"
-                  }
-                  alt="green iguana"
-                />
+                <a href={item.person.url} target="_blank">
+                  <CardMedia
+                    component="img"
+                    height="300"
+                    image={
+                      item.person.image
+                        ? item.person.image.original
+                        : "https://static.tvmaze.com/uploads/images/original_untouched/297/743857.jpg"
+                    }
+                    alt="green iguana"
+                  />
+                </a>
                 <CardContent className="cardText">
                   <Typography gutterBottom variant="h5" component="div">
                     {item.person.name}
@@ -41,7 +42,6 @@ const Actor = (props) => {
                 </CardContent>
               </CardActionArea>
             </Card>
-            </a>
           </div>
         );
       })}

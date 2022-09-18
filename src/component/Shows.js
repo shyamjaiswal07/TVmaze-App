@@ -15,25 +15,26 @@ const Shows = (props) => {
       setstate(res.data);
     });
   }, [props.inpVal]);
-  
+
   return (
     <div className="Allitem">
       {state.map((item, index) => {
         return (
           <div className="allItems" key={index}>
-          <a href={item.show.url} target="_blank">
             <Card sx={{ width: 250 }}>
-              <CardActionArea >
-                <CardMedia
-                  component="img"
-                  height= "300"
-                  image={
-                    item.show.image
-                      ? item.show.image.original
-                      : "https://static.tvmaze.com/uploads/images/original_untouched/297/743857.jpg"
-                  }
-                  alt="green iguana"
-                />
+              <CardActionArea>
+                <a href={item.show.url} target="_blank">
+                  <CardMedia
+                    component="img"
+                    height="300"
+                    image={
+                      item.show.image
+                        ? item.show.image.original
+                        : "https://static.tvmaze.com/uploads/images/original_untouched/297/743857.jpg"
+                    }
+                    alt="green iguana"
+                  />
+                </a>
                 <CardContent className="cardText">
                   <Typography gutterBottom variant="h5" component="div">
                     {item.show.name}
@@ -41,7 +42,6 @@ const Shows = (props) => {
                 </CardContent>
               </CardActionArea>
             </Card>
-            </a>
           </div>
         );
       })}
