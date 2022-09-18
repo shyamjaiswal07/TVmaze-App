@@ -48,7 +48,6 @@ font-size: xx-large;
   color: red;
   margin-top: 10px;
 }
-.CardArea{
-  display: flex;
-flex-direction: row;
+.cardText{
+  text-align: center;
 }

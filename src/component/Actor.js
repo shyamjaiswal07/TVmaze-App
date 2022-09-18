@@ -33,7 +33,7 @@ const Actor = (props) => {
                   }
                   alt="green iguana"
                 />
-                <CardContent>
+                <CardContent className="cardText">
                   <Typography gutterBottom variant="h5" component="div">
                     {item.person.name}
                   </Typography>

@@ -22,7 +22,7 @@ const Shows = (props) => {
         return (
           <div className="allItems" key={index}>
             <Card sx={{ width: 250 }}>
-              <CardActionArea className="CardArea">
+              <CardActionArea >
                 <CardMedia
                   component="img"
                   height= "300"
@@ -33,7 +33,7 @@ const Shows = (props) => {
                   }
                   alt="green iguana"
                 />
-                <CardContent>
+                <CardContent className="cardText">
                   <Typography gutterBottom variant="h5" component="div">
                     {item.show.name}
                   </Typography>
