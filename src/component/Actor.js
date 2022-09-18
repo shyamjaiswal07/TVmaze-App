@@ -21,6 +21,7 @@ const Actor = (props) => {
         console.log(item);
         return (
           <div className="allItems" key={index}>
+          <a href={item.person.url} target="_blank">
             <Card sx={{ width: 250 }}>
               <CardActionArea>
                 <CardMedia
@@ -40,6 +41,7 @@ const Actor = (props) => {
                 </CardContent>
               </CardActionArea>
             </Card>
+            </a>
           </div>
         );
       })}

@@ -21,6 +21,7 @@ const Shows = (props) => {
       {state.map((item, index) => {
         return (
           <div className="allItems" key={index}>
+          <a href={item.show.url} target="_blank">
             <Card sx={{ width: 250 }}>
               <CardActionArea >
                 <CardMedia
@@ -40,6 +41,7 @@ const Shows = (props) => {
                 </CardContent>
               </CardActionArea>
             </Card>
+            </a>
           </div>
         );
       })}
